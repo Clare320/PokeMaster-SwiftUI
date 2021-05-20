@@ -20,7 +20,7 @@ struct ToolButtonModifier: ViewModifier {
 struct PokemonInfoRow: View {
     let model: PokemonViewModel
     
-    @State var expanded: Bool
+    let expanded: Bool
     
     var body: some View {
         VStack {
@@ -79,9 +79,11 @@ struct PokemonInfoRow: View {
             }
         )
         .padding(.horizontal)
-        .onTapGesture {
-            expanded.toggle()
-        }
+//        .onTapGesture {
+//            withAnimation {
+//                expanded.toggle()
+//            }
+//        }
     }
 }
 
