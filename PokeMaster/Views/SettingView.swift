@@ -34,7 +34,7 @@ struct SettingView: View {
                     SecureField("确认密码", text: settingsBinding.verifyPassword)
                 }
                 if settings.loginRequesting {
-                    Text("登录中...")
+                    ActivityIndicatorView(animating: true)
                 } else {
                     Button(settings.accountBehavior.text) {
                         if settings.accountBehavior == .login {
@@ -45,9 +45,9 @@ struct SettingView: View {
                     }
                 }
             } else {
-                Text(settings.email)
+                Text(settings.loginUser!.email)
                 Button("注销") {
-                    print("logout---->")
+                    store.dispatch(.logout)
                 }
             }
         }
@@ -79,6 +79,9 @@ struct SettingView: View {
             accountSection
             optionSection
             cacheSection
+        }
+        .alert(item: settingsBinding.loginError) { error in
+            Alert(title: Text(error.localizedDescription))
         }
     }
 }

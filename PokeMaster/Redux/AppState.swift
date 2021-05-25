@@ -24,6 +24,7 @@ extension AppState {
             case login, register
         }
         
+        @FileStorage(directory: .documentDirectory, fileName: "user.json")
         var loginUser: User?
         
         var loginRequesting = false
@@ -33,7 +34,14 @@ extension AppState {
         var email = ""
         var password = ""
         var verifyPassword = ""
-        var showEnglishName = true
+        
+        @UserDefaultsStorage(key: "showEnglishName")
+        var showEnglishName: Bool {
+            didSet {
+                print("showEnglishName----\(showEnglishName)")
+            }
+        }
+        
         var sorting = Sorting.id
         var showFavoriteOnly = false
     }

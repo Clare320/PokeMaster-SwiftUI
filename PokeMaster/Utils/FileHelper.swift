@@ -58,3 +58,7 @@ enum FileHelper {
         try FileManager.default.removeItem(at: url.appendingPathComponent(fileName))
     }
 }
+
+/// 为什么声明静态方法时多用enum类型
+
+
