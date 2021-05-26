@@ -22,22 +22,22 @@ struct SettingView: View {
     var accountSection: some View {
         Section(header: Text("账户")) {
             if settings.loginUser == nil {
-                Picker(selection: settingsBinding.accountBehavior, label: Text("Picker")) {
+                Picker(selection: settingsBinding.accountChecker.accountBehavior, label: Text("Picker")) {
                     ForEach(AppState.Settings.AccountBehavior.allCases, id: \.self) {
                         Text($0.text)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                TextField("电子邮箱", text: settingsBinding.email)
-                SecureField("密码", text: settingsBinding.password)
-                if settings.accountBehavior == .register {
-                    SecureField("确认密码", text: settingsBinding.verifyPassword)
+                TextField("电子邮箱", text: settingsBinding.accountChecker.email)
+                SecureField("密码", text: settingsBinding.accountChecker.password)
+                if settings.accountChecker.accountBehavior == .register {
+                    SecureField("确认密码", text: settingsBinding.accountChecker.verifyPassword)
                 }
                 if settings.loginRequesting {
                     ActivityIndicatorView(animating: true)
                 } else {
-                    Button(settings.accountBehavior.text) {
-                        if settings.accountBehavior == .login {
+                    Button(settings.accountChecker.accountBehavior.text) {
+                        if settings.accountChecker.accountBehavior == .login {
                             store.dispatch(.login(email: "123@xx.com", password: "123"))
                         } else {
                             

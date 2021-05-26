@@ -24,16 +24,20 @@ extension AppState {
             case login, register
         }
         
+        class AccountChecker {
+            @Published var accountBehavior = AccountBehavior.login
+            @Published var email = ""
+            @Published var password = ""
+            @Published var verifyPassword = ""
+        }
+        
         @FileStorage(directory: .documentDirectory, fileName: "user.json")
         var loginUser: User?
         
         var loginRequesting = false
         var loginError: AppError?
         
-        var accountBehavior = AccountBehavior.login
-        var email = ""
-        var password = ""
-        var verifyPassword = ""
+        var accountChecker = AccountChecker()
         
         @UserDefaultsStorage(key: "showEnglishName")
         var showEnglishName: Bool {
