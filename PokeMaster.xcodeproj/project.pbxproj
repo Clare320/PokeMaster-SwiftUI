@@ -17,6 +17,7 @@
 		BC35FEA3265BA3F70089021E /* AppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35FEA2265BA3F70089021E /* AppCommand.swift */; };
 		BC35FEA6265BA5250089021E /* LoginAppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35FEA5265BA5250089021E /* LoginAppCommand.swift */; };
 		BC35FEA8265BA94B0089021E /* SubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35FEA7265BA94B0089021E /* SubscriptionToken.swift */; };
+		BC58CF12265E7FB1007A7676 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58CF11265E7FB1007A7676 /* Test.swift */; };
 		BC672391265C987C003B0E59 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC672390265C987C003B0E59 /* FileStorage.swift */; };
 		BC672393265C9DB7003B0E59 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC672392265C9DB7003B0E59 /* ActivityIndicatorView.swift */; };
 		BC672395265CA3CA003B0E59 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC672394265CA3CA003B0E59 /* UserDefaultsStorage.swift */; };
@@ -28,6 +29,7 @@
 		BCB50F2A265794C9009C6C60 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB50F29265794C9009C6C60 /* SettingView.swift */; };
 		BCB50F2C26579E7C009C6C60 /* SettingRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB50F2B26579E7C009C6C60 /* SettingRootView.swift */; };
 		BCB50F2E26579FA8009C6C60 /* PokemonListRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB50F2D26579FA8009C6C60 /* PokemonListRootView.swift */; };
+		BCF59C42265DE8C400217509 /* EmailCheckingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59C41265DE8C400217509 /* EmailCheckingRequest.swift */; };
 		D1320AD523178614006F02A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1320A7D23178614006F02A6 /* Assets.xcassets */; };
 		D1320AD623178614006F02A6 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1320A7F23178614006F02A6 /* FileHelper.swift */; };
 		D1320AD723178614006F02A6 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1320A8023178614006F02A6 /* Sample.swift */; };
@@ -119,6 +121,7 @@
 		BC35FEA2265BA3F70089021E /* AppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommand.swift; sourceTree = "<group>"; };
 		BC35FEA5265BA5250089021E /* LoginAppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAppCommand.swift; sourceTree = "<group>"; };
 		BC35FEA7265BA94B0089021E /* SubscriptionToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionToken.swift; sourceTree = "<group>"; };
+		BC58CF11265E7FB1007A7676 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		BC672390265C987C003B0E59 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		BC672392265C9DB7003B0E59 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		BC672394265CA3CA003B0E59 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		BCB50F29265794C9009C6C60 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BCB50F2B26579E7C009C6C60 /* SettingRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRootView.swift; sourceTree = "<group>"; };
 		BCB50F2D26579FA8009C6C60 /* PokemonListRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListRootView.swift; sourceTree = "<group>"; };
+		BCF59C41265DE8C400217509 /* EmailCheckingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCheckingRequest.swift; sourceTree = "<group>"; };
 		D1320A7D23178614006F02A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1320A7F23178614006F02A6 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		D1320A8023178614006F02A6 /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 			children = (
 				BC35FE9E265B9F290089021E /* LoginRequest.swift */,
 				BC35FEA0265B9F760089021E /* AppError.swift */,
+				BCF59C41265DE8C400217509 /* EmailCheckingRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				BCB50F2D26579FA8009C6C60 /* PokemonListRootView.swift */,
 				BC35FE8B265B50E70089021E /* MainTab.swift */,
 				BC672392265C9DB7003B0E59 /* ActivityIndicatorView.swift */,
+				BC58CF11265E7FB1007A7676 /* Test.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF59C42265DE8C400217509 /* EmailCheckingRequest.swift in Sources */,
 				D1320B1F23178614006F02A6 /* AppDelegate.swift in Sources */,
 				BC35FE9F265B9F290089021E /* LoginRequest.swift in Sources */,
 				BCB50F2426575EFB009C6C60 /* PokemonPanel.swift in Sources */,
@@ -604,6 +611,7 @@
 				D1320AD723178614006F02A6 /* Sample.swift in Sources */,
 				BC35FEA8265BA94B0089021E /* SubscriptionToken.swift in Sources */,
 				D1320B1923178614006F02A6 /* AbilityViewModel.swift in Sources */,
+				BC58CF12265E7FB1007A7676 /* Test.swift in Sources */,
 				BCB50F2626578B6D009C6C60 /* BlurView.swift in Sources */,
 				BCB50F2E26579FA8009C6C60 /* PokemonListRootView.swift in Sources */,
 				BC35FE8C265B50E70089021E /* MainTab.swift in Sources */,

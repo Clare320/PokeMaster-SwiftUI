@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 struct AppState {
     var settings = Settings()
@@ -29,6 +30,32 @@ extension AppState {
             @Published var email = ""
             @Published var password = ""
             @Published var verifyPassword = ""
+            
+            var isEmailVaild: AnyPublisher<Bool, Never> {
+                let remoteVerify = $email
+                    .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
+                    .removeDuplicates()
+                    .flatMap { email -> AnyPublisher<Bool, Never> in
+                        let validEmail = email.isValidEmailAddress
+                        let canSkip = self.accountBehavior == .login
+                        
+                        switch (validEmail, canSkip) {
+                        case (false, _):
+                            return Just(false).eraseToAnyPublisher()
+                        case (true, false):
+                            return EmailCheckingRequest(email: email)
+                                .publisher
+                                .eraseToAnyPublisher()
+                        case (true, true):
+                            return Just(true).eraseToAnyPublisher()
+                        }
+                    }
+                let emailLocalValid = $email.map{ $0.isValidEmailAddress }
+                let canSkipRemoteVerify = $accountBehavior.map { $0 == .login }
+                return Publishers.CombineLatest3(remoteVerify, emailLocalValid, canSkipRemoteVerify)
+                    .map { $0 && ($1 || $2) }
+                    .eraseToAnyPublisher()
+            }
         }
         
         @FileStorage(directory: .documentDirectory, fileName: "user.json")
@@ -38,6 +65,7 @@ extension AppState {
         var loginError: AppError?
         
         var accountChecker = AccountChecker()
+        var isEmailValid = false
         
         @UserDefaultsStorage(key: "showEnglishName")
         var showEnglishName: Bool {

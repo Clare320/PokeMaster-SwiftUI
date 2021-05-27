@@ -70,8 +70,6 @@ extension PokemonPanel {
                     }
                 }
             }
-            .frame(width: .infinity, alignment: .leading)
-            
         }
     }
 }
