@@ -18,6 +18,7 @@
 		BC35FEA6265BA5250089021E /* LoginAppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35FEA5265BA5250089021E /* LoginAppCommand.swift */; };
 		BC35FEA8265BA94B0089021E /* SubscriptionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35FEA7265BA94B0089021E /* SubscriptionToken.swift */; };
 		BC58CF12265E7FB1007A7676 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC58CF11265E7FB1007A7676 /* Test.swift */; };
+		BC62E767265FEAFF00CAEA36 /* LoadPokemonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC62E766265FEAFF00CAEA36 /* LoadPokemonRequest.swift */; };
 		BC672391265C987C003B0E59 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC672390265C987C003B0E59 /* FileStorage.swift */; };
 		BC672393265C9DB7003B0E59 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC672392265C9DB7003B0E59 /* ActivityIndicatorView.swift */; };
 		BC672395265CA3CA003B0E59 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC672394265CA3CA003B0E59 /* UserDefaultsStorage.swift */; };
@@ -122,6 +123,7 @@
 		BC35FEA5265BA5250089021E /* LoginAppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAppCommand.swift; sourceTree = "<group>"; };
 		BC35FEA7265BA94B0089021E /* SubscriptionToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionToken.swift; sourceTree = "<group>"; };
 		BC58CF11265E7FB1007A7676 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		BC62E766265FEAFF00CAEA36 /* LoadPokemonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPokemonRequest.swift; sourceTree = "<group>"; };
 		BC672390265C987C003B0E59 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		BC672392265C9DB7003B0E59 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		BC672394265CA3CA003B0E59 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				BC35FE9E265B9F290089021E /* LoginRequest.swift */,
 				BC35FEA0265B9F760089021E /* AppError.swift */,
 				BCF59C41265DE8C400217509 /* EmailCheckingRequest.swift */,
+				BC62E766265FEAFF00CAEA36 /* LoadPokemonRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				BC672393265C9DB7003B0E59 /* ActivityIndicatorView.swift in Sources */,
 				BC35FE9A265B94AC0089021E /* User.swift in Sources */,
 				BC6DD2822656985600FE850C /* PokemonList.swift in Sources */,
+				BC62E767265FEAFF00CAEA36 /* LoadPokemonRequest.swift in Sources */,
 				D1320AD823178614006F02A6 /* Helpers.swift in Sources */,
 				D1320B2223178614006F02A6 /* SceneDelegate.swift in Sources */,
 			);
