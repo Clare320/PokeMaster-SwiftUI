@@ -19,6 +19,10 @@ struct SettingView: View {
         store.appState.settings
     }
   
+    var isCanRegister: Bool {
+        store.appState.settings.isEmailValid && store.appState.settings.isPasswordValid
+    }
+    
     var accountSection: some View {
         Section(header: Text("账户")) {
             if settings.loginUser == nil {
@@ -37,13 +41,16 @@ struct SettingView: View {
                 if settings.loginRequesting {
                     ActivityIndicatorView(animating: true)
                 } else {
+                    let disabled = settings.accountChecker.accountBehavior == .login
+                        ? false : !(settingsBinding.isEmailValid.wrappedValue && settingsBinding.isPasswordValid.wrappedValue)
                     Button(settings.accountChecker.accountBehavior.text) {
                         if settings.accountChecker.accountBehavior == .login {
-                            store.dispatch(.login(email: "123@xx.com", password: "123"))
+                            store.dispatch(.login(email: settings.accountChecker.email, password: settings.accountChecker.password))
                         } else {
-                            
+                            store.dispatch(.register(email: settings.accountChecker.email, password: settings.accountChecker.password))
                         }
                     }
+                    .disabled(disabled)
                 }
             } else {
                 Text(settings.loginUser!.email)
@@ -68,7 +75,9 @@ struct SettingView: View {
     
     var cacheSection: some View {
         Section {
-            Button(action: {}, label: {
+            Button(action: {
+                store.dispatch(.cleanCache)
+            }, label: {
                 Text("清空缓存")
                     .foregroundColor(.red)
             })

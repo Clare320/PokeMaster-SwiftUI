@@ -12,7 +12,21 @@ import Combine
 struct AppState {
     var settings = Settings()
     
-    
+    var pokemonList = PokemonList()
+}
+
+extension AppState {
+    struct PokemonList {
+        var pokemons: [Int: PokemonViewModel]?
+        var loadingPokemons = false
+        
+        var allPokemonsByID: [PokemonViewModel] {
+            guard let pokemons = pokemons?.values else {
+                return [];
+            }
+            return pokemons.sorted { $0.id > $1.id }
+        }
+    }
 }
 
 extension AppState {
@@ -56,6 +70,15 @@ extension AppState {
                     .map { $0 && ($1 || $2) }
                     .eraseToAnyPublisher()
             }
+            
+            var isPasswordValid: AnyPublisher<Bool, Never> {
+                Publishers.CombineLatest($password, $verifyPassword)
+                    .flatMap { password, verifyPassword -> AnyPublisher<Bool, Never> in
+                        let result = password.count > 0 && verifyPassword.count > 0 && password == verifyPassword
+                        return Just(result).eraseToAnyPublisher()
+                    }
+                    .eraseToAnyPublisher()
+            }
         }
         
         @FileStorage(directory: .documentDirectory, fileName: "user.json")
@@ -66,6 +89,7 @@ extension AppState {
         
         var accountChecker = AccountChecker()
         var isEmailValid = false
+        var isPasswordValid = false
         
         @UserDefaultsStorage(key: "showEnglishName")
         var showEnglishName: Bool {

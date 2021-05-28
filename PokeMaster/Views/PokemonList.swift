@@ -11,7 +11,7 @@ import SwiftUI
 struct PokemonList: View {
     @State var expandingIndex: Int?
     @State var searchText: String = ""
-    
+    @EnvironmentObject var store: Store
     var body: some View {
         // 如何隐藏掉分割线
 //        List(PokemonViewModel.all) { pokemon in
@@ -23,10 +23,11 @@ struct PokemonList: View {
             } onCommit: {
                 
             }
-            .padding(.leading, 12)
+            .background(Color(.gray))
+            .padding(.all, 12)
             ScrollView {
                 LazyVStack {
-                    ForEach(PokemonViewModel.all) { pokemon in
+                    ForEach(store.appState.pokemonList.allPokemonsByID) { pokemon in
                         PokemonInfoRow(model: pokemon, expanded: expandingIndex == pokemon.id)
                             .onTapGesture {
                                 withAnimation(.spring(response: 0.55, dampingFraction: 0.425, blendDuration: 0)) {
@@ -41,19 +42,22 @@ struct PokemonList: View {
                 }
             }
         }
-        .overlay(
-            VStack {
-                Spacer()
-                PokemonPanel(model: .sample(id: 1))
-            }
-            .edgesIgnoringSafeArea(.bottom)
-        )
+//        .overlay(
+//            VStack {
+//                Spacer()
+//                PokemonPanel(model: .sample(id: 1))
+//            }
+//            .edgesIgnoringSafeArea(.bottom)
+//        )
        
     }
 }
 
 struct PokemonList_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonList()
+        PokemonList().environmentObject(Store())
     }
 }
+
+
+// ScollView顶部会遮挡元素

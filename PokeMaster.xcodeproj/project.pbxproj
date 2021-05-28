@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,9 @@
 		BCB50F2A265794C9009C6C60 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB50F29265794C9009C6C60 /* SettingView.swift */; };
 		BCB50F2C26579E7C009C6C60 /* SettingRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB50F2B26579E7C009C6C60 /* SettingRootView.swift */; };
 		BCB50F2E26579FA8009C6C60 /* PokemonListRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB50F2D26579FA8009C6C60 /* PokemonListRootView.swift */; };
+		BCD7A64026609B0D00816BDE /* LoadPokemonsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7A63F26609B0D00816BDE /* LoadPokemonsCommand.swift */; };
+		BCD7A6432660DA6C00816BDE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BCD7A6422660DA6C00816BDE /* Kingfisher */; };
+		BCD7A6452660F3B000816BDE /* RegisterAppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD7A6442660F3B000816BDE /* RegisterAppCommand.swift */; };
 		BCF59C42265DE8C400217509 /* EmailCheckingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF59C41265DE8C400217509 /* EmailCheckingRequest.swift */; };
 		D1320AD523178614006F02A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1320A7D23178614006F02A6 /* Assets.xcassets */; };
 		D1320AD623178614006F02A6 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1320A7F23178614006F02A6 /* FileHelper.swift */; };
@@ -135,6 +138,8 @@
 		BCB50F29265794C9009C6C60 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BCB50F2B26579E7C009C6C60 /* SettingRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRootView.swift; sourceTree = "<group>"; };
 		BCB50F2D26579FA8009C6C60 /* PokemonListRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListRootView.swift; sourceTree = "<group>"; };
+		BCD7A63F26609B0D00816BDE /* LoadPokemonsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPokemonsCommand.swift; sourceTree = "<group>"; };
+		BCD7A6442660F3B000816BDE /* RegisterAppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAppCommand.swift; sourceTree = "<group>"; };
 		BCF59C41265DE8C400217509 /* EmailCheckingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCheckingRequest.swift; sourceTree = "<group>"; };
 		D1320A7D23178614006F02A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1320A7F23178614006F02A6 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
@@ -221,6 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD7A6432660DA6C00816BDE /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +277,8 @@
 				BC35FEA2265BA3F70089021E /* AppCommand.swift */,
 				BC35FEA5265BA5250089021E /* LoginAppCommand.swift */,
 				BC35FEA7265BA94B0089021E /* SubscriptionToken.swift */,
+				BCD7A63F26609B0D00816BDE /* LoadPokemonsCommand.swift */,
+				BCD7A6442660F3B000816BDE /* RegisterAppCommand.swift */,
 			);
 			path = AppCommand;
 			sourceTree = "<group>";
@@ -480,6 +488,9 @@
 			dependencies = (
 			);
 			name = PokeMaster;
+			packageProductDependencies = (
+				BCD7A6422660DA6C00816BDE /* Kingfisher */,
+			);
 			productName = "PokeMaster-Starter";
 			productReference = 4B9EAF6823162D9900B72082 /* PokeMaster.app */;
 			productType = "com.apple.product-type.application";
@@ -508,6 +519,9 @@
 				Base,
 			);
 			mainGroup = 4B9EAF5F23162D9900B72082;
+			packageReferences = (
+				BCD7A6412660DA6C00816BDE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 4B9EAF6923162D9900B72082 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -600,6 +614,7 @@
 				BCF59C42265DE8C400217509 /* EmailCheckingRequest.swift in Sources */,
 				D1320B1F23178614006F02A6 /* AppDelegate.swift in Sources */,
 				BC35FE9F265B9F290089021E /* LoginRequest.swift in Sources */,
+				BCD7A64026609B0D00816BDE /* LoadPokemonsCommand.swift in Sources */,
 				BCB50F2426575EFB009C6C60 /* PokemonPanel.swift in Sources */,
 				BC672391265C987C003B0E59 /* FileStorage.swift in Sources */,
 				D1320B1C23178614006F02A6 /* Ability.swift in Sources */,
@@ -624,6 +639,7 @@
 				BC35FE9C265B975B0089021E /* AppAction.swift in Sources */,
 				BC35FE91265B52DD0089021E /* AppState.swift in Sources */,
 				BC35FEA1265B9F760089021E /* AppError.swift in Sources */,
+				BCD7A6452660F3B000816BDE /* RegisterAppCommand.swift in Sources */,
 				BC35FE8F265B52C90089021E /* Store.swift in Sources */,
 				D1320B1A23178614006F02A6 /* PokemonViewModel.swift in Sources */,
 				BC35FEA3265BA3F70089021E /* AppCommand.swift in Sources */,
@@ -828,6 +844,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BCD7A6412660DA6C00816BDE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BCD7A6422660DA6C00816BDE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCD7A6412660DA6C00816BDE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4B9EAF6023162D9900B72082 /* Project object */;
 }

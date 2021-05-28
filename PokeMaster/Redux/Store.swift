@@ -23,6 +23,12 @@ class Store: ObservableObject {
                 self.dispatch(.emailValid(valid: valid))
             }
             .store(in: &disposeBag)
+        
+        appState.settings.accountChecker.isPasswordValid
+            .sink { valid in
+                self.dispatch(.passwordValid(valid: valid))
+            }
+            .store(in: &disposeBag)
     }
     
     static func reduce(state: AppState, action: AppAction) -> (AppState, AppCommand?) {
@@ -46,8 +52,31 @@ class Store: ObservableObject {
             }
         case .logout:
             appState.settings.loginUser = nil
+            appState.settings.accountChecker.email = ""
+            appState.settings.accountChecker.password = ""
         case .emailValid(let valid):
             appState.settings.isEmailValid = valid
+        case .loadPokemons:
+            if appState.pokemonList.loadingPokemons == true {
+                break
+            }
+            appState.pokemonList.loadingPokemons = true
+            appCommand = LoadPokemonsCommands()
+        case .loadPokemonsDone(let result):
+            switch result {
+            case .success(let models):
+                appState.pokemonList.pokemons = Dictionary(uniqueKeysWithValues: models.map { ($0.id, $0) })
+            case .failure(let error):
+                print("loadPokemonsDone-->\(error)")
+            }
+        case .passwordValid(let valid):
+            appState.settings.isPasswordValid = valid
+        case .register(let email, let password):
+            appCommand = RegisterAppCommand(email: email, password: password)
+        case .cleanCache:
+            appState.settings.loginUser = nil
+            appState.settings.accountChecker.email = ""
+            appState.settings.accountChecker.password = ""
         }
         
         return (appState, appCommand)
