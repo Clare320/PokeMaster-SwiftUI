@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct PokemonList: View {
-    @State var expandingIndex: Int?
     @State var searchText: String = ""
     @EnvironmentObject var store: Store
     var body: some View {
@@ -28,14 +27,10 @@ struct PokemonList: View {
             ScrollView {
                 LazyVStack {
                     ForEach(store.appState.pokemonList.allPokemonsByID) { pokemon in
-                        PokemonInfoRow(model: pokemon, expanded: expandingIndex == pokemon.id)
+                        PokemonInfoRow(model: pokemon, expanded: store.appState.pokemonList.expandingIndex == pokemon.id)
                             .onTapGesture {
                                 withAnimation(.spring(response: 0.55, dampingFraction: 0.425, blendDuration: 0)) {
-                                    if (expandingIndex == pokemon.id) {
-                                        expandingIndex = nil
-                                    } else {
-                                        expandingIndex = pokemon.id
-                                    }
+                                    store.dispatch(.expandPokemonRow(id: pokemon.id))
                                 }
                             }
                     }

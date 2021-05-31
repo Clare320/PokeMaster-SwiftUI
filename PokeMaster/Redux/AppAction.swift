@@ -18,4 +18,5 @@ enum AppAction {
     case passwordValid(valid: Bool)
     case register(email: String, password: String)
     case cleanCache
+    case expandPokemonRow(id: Int)
 }

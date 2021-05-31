@@ -77,6 +77,12 @@ class Store: ObservableObject {
             appState.settings.loginUser = nil
             appState.settings.accountChecker.email = ""
             appState.settings.accountChecker.password = ""
+        case .expandPokemonRow(let id):
+            if appState.pokemonList.expandingIndex == id {
+                appState.pokemonList.expandingIndex = nil
+            } else {
+                appState.pokemonList.expandingIndex = id
+            }
         }
         
         return (appState, appCommand)
