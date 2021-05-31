@@ -83,6 +83,37 @@ class Store: ObservableObject {
             } else {
                 appState.pokemonList.expandingIndex = id
             }
+        case .toggleListSelection(let index):
+            let expanding = appState.pokemonList.selectionState.expandingIndex
+            if expanding == index {
+                appState.pokemonList.selectionState.expandingIndex = nil
+                appState.pokemonList.selectionState.panelPresented = false
+                appState.pokemonList.selectionState.radarProgress = 0
+            } else {
+                appState.pokemonList.selectionState.expandingIndex = index
+                appState.pokemonList.selectionState.panelIndex = index
+                appState.pokemonList.selectionState.radarShouldAnimate =
+                    appState.pokemonList.selectionState.radarProgress == 1 ? false : true
+            }
+            
+        case .togglePanelPresenting(let presenting):
+            appState.pokemonList.selectionState.panelPresented = presenting
+            appState.pokemonList.selectionState.radarProgress = presenting ? 1 : 0
+            
+        case .loadAbilities(let pokemon):
+            appCommand = LoadAbilitiesCommand(pokemon: pokemon)
+
+        case .loadAbilitiesDone(let result):
+            switch result {
+            case .success(let loadedAbilities):
+                var abilities = appState.pokemonList.abilities ?? [:]
+                for ability in loadedAbilities {
+                    abilities[ability.id] = ability
+                }
+                appState.pokemonList.abilities = abilities
+            case .failure(let error):
+                print(error)
+            }
         }
         
         return (appState, appCommand)

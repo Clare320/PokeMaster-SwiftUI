@@ -10,10 +10,11 @@ import SwiftUI
 
 struct PokemonPanel: View {
     @State var darkBlur = false
+    @EnvironmentObject var store: Store
     
     let model: PokemonViewModel
-    var abilities: [AbilityViewModel] {
-        AbilityViewModel.sample(pokemonID: model.id)
+    var abilities: [AbilityViewModel]? {
+        store.appState.pokemonList.abilityViewModels(for: model.pokemon)
     }
     
     var topIndicator: some View {

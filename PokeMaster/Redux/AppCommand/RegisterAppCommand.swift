@@ -13,7 +13,7 @@ struct RegisterAppCommand: AppCommand {
     let password: String
     
     func execute(in store: Store) {
-        let user = User(email: email, favioritePokemonIDs: [])
+        let user = User(email: email, favoritePokemonIDs: [])
         store.dispatch(.accountBehaviorDone(result: .success(user)))
     }
 }

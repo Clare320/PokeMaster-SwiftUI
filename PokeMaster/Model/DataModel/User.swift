@@ -11,9 +11,9 @@ import Foundation
 struct User: Codable {
     var email: String
     
-    var favioritePokemonIDs: Set<Int>
+    var favoritePokemonIDs: Set<Int>
     
-    func isFavioritePokemon(id: Int) -> Bool {
-        favioritePokemonIDs.contains(id)
+    func isFavoritePokemon(id: Int) -> Bool {
+        favoritePokemonIDs.contains(id)
     }
 }

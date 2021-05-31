@@ -19,8 +19,9 @@ struct ToolButtonModifier: ViewModifier {
 }
 
 struct PokemonInfoRow: View {
-    let model: PokemonViewModel
+    @EnvironmentObject var store: Store
     
+    let model: PokemonViewModel
     let expanded: Bool
     
     var body: some View {
@@ -49,7 +50,10 @@ struct PokemonInfoRow: View {
                     Image(systemName: "star")
                         .modifier(ToolButtonModifier())
                 })
-                Button(action: {}, label: {
+                Button(action: {
+                    let target = !self.store.appState.pokemonList.selectionState.panelPresented
+                    self.store.dispatch(.togglePanelPresenting(presenting: target))
+                }, label: {
                     Image(systemName: "chart.bar")
                         .modifier(ToolButtonModifier())
                 })
